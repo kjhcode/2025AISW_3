@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import folium
+from streamlit_folium import folium_static # 이전에 설치했던 streamlit_folium도 import 해줘야 해!
 
 # 데이터
 map_data = pd.DataFrame({
@@ -14,9 +15,10 @@ map_data = pd.DataFrame({
 
 
 #1 지도 객체 생성
+# 지도의 위치를 서울(위도 37.5665, 경도 126.9780)로 변경하고, 확대 레벨도 10으로 좀 더 확대해봤어!
 my_map = folium.Map(
-	location=[map_data['lat'].mean(), map_data['lon'].mean()], 
-    zoom_start=2)
+	location=[37.5665, 126.9780], # <-- 이 부분을 수정했어!
+    zoom_start=10) # <-- 확대 레벨도 좀 더 키워봤어!
     
     
 #2 지도 커스텀
@@ -44,4 +46,5 @@ st.caption(
 	"Displaying geographical data on a map using Streamlit and Folium")
 
 #4 지도 시각화
-st.components.v1.html(my_map._repr_html_(), width=800, height=600)
+# st.components.v1.html 대신 folium_static을 사용하면 더 간편해!
+folium_static(my_map, width=800, height=600)
