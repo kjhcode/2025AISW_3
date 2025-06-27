@@ -33,4 +33,4 @@ if selected_name:
         location=[filtered_df['위도'].iloc[0], filtered_df['경도'].iloc[0]],
         popup=filtered_df['이름'].iloc[0]
     ).add_to(filtered_map)
-    folium_static(filtered_map
+    folium_static(filtered_map)
