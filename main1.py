@@ -41,7 +41,7 @@ for index, row in map_data.iterrows():       # 데이터프레임 한 행 씩 �
     
     
 #3 지도 제목과 캡션 추가
-st.title('Map with Location Data')
+st.title('Map')
 st.caption(
 	"Displaying geographical data on a map using Streamlit and Folium")
 
